@@ -1,0 +1,82 @@
+﻿@page "/add-cuenta-banco"
+@layout MainLayout
+@inherits FinalProyect2.Pages.AddCuentaBancoComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using FinalProyect2.Models.Jose
+<PageTitle>Add Cuenta Banco</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@cuentabanco" Visible="@(cuentabanco != null)" TItem="FinalProyect2.Models.Jose.CuentaBanco" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Id Cuenta Banco" Component="IdCuentaBanco" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(cuentabanco.IdCuentaBanco)" Name="IdCuentaBanco">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="IdCuentaBanco" Text="IdCuentaBanco is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Banco" Component="Banco" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="255" style="width: 100%" @bind-Value="@(cuentabanco.Banco)" Name="Banco">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tipo Cuenta" Component="TipoCuenta" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="255" style="width: 100%" @bind-Value="@(cuentabanco.TipoCuenta)" Name="TipoCuenta">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Cliente" Component="Fk_IdCliente" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDownDataGrid Data="@(getClientesForFk_IdClienteResult)" TextProperty="Nombre" ValueProperty="IdCliente" Placeholder="Choose Cliente" ShowSearch="false" style="display: block; width: 100%" @bind-Value="@(cuentabanco.Fk_IdCliente)" Name="Fk_IdCliente">
+                </RadzenDropDownDataGrid>
+                <RadzenRequiredValidator Component="Fk_IdCliente" Text="Fk_IdCliente is required" style="position: absolute" DefaultValue="0">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Fecha Creacion" Component="FechaCreacion" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="dd/MM/yyyy" style="width: 100%" @bind-Value="@(cuentabanco.FechaCreacion)" Name="FechaCreacion">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

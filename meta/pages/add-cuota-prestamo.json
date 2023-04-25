@@ -1,0 +1,527 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Id Cuota Prestamo",
+                              "component": "IdCuotaPrestamo",
+                              "name": "IdCuotaPrestamoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int",
+                              "type": "numeric",
+                              "name": "IdCuotaPrestamo",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cuotaprestamo.IdCuotaPrestamo}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "IdCuotaPrestamoRequiredValidator",
+                              "component": "IdCuotaPrestamo",
+                              "text": "IdCuotaPrestamo is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Monto",
+                              "component": "Monto",
+                              "name": "MontoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "Monto",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotaprestamo.Monto}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Interes",
+                              "component": "Interes",
+                              "name": "InteresLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "Interes",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotaprestamo.Interes}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tipo De Prestamos",
+                              "component": "TipoDePrestamos",
+                              "name": "TipoDePrestamosLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "TipoDePrestamos",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotaprestamo.TipoDePrestamos}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Estado",
+                              "component": "Estado",
+                              "name": "EstadoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "Estado",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotaprestamo.Estado}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha Planificada",
+                              "component": "FechaPlanificada",
+                              "name": "FechaPlanificadaLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaPlanificada",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotaprestamo.FechaPlanificada}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha Realizada",
+                              "component": "FechaRealizada",
+                              "name": "FechaRealizadaLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaRealizada",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotaprestamo.FechaRealizada}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Cuota Pres",
+                              "component": "CuotaPres",
+                              "name": "CuotaPresLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "CuotaPres",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotaprestamo.CuotaPres}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Prestamo",
+                              "component": "Fk_IdPrestamos",
+                              "name": "Fk_IdPrestamosLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getPrestamosForFk_IdPrestamosResult}",
+                              "textProperty": "Periodo",
+                              "valueProperty": "IdPrestamos",
+                              "placeholder": "Choose Prestamo",
+                              "valueType": "int",
+                              "showSearch": false,
+                              "type": "dropdown-datagrid",
+                              "name": "Fk_IdPrestamos",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cuotaprestamo.Fk_IdPrestamos}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "Fk_IdPrestamosRequiredValidator",
+                              "component": "Fk_IdPrestamos",
+                              "text": "Fk_IdPrestamos is required",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "defaultValue": "0"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha Creacion",
+                              "component": "FechaCreacion",
+                              "name": "FechaCreacionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaCreacion",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotaprestamo.FechaCreacion}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new CuotaPrestamo!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "JOSE.createCuotaPrestamo",
+                        "parameters": [
+                          {
+                            "name": "CuotaPrestamo",
+                            "value": "${cuotaprestamo}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${cuotaprestamo}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${cuotaprestamo}",
+                  "visible": "${cuotaprestamo != null}",
+                  "itemType": "FinalProyect2.Models.Jose.CuotaPrestamo"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "JOSE.getPrestamos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPrestamosForFk_IdPrestamosResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<FinalProyect2.Models.Jose.Prestamo>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "cuotaprestamo",
+        "type": "set",
+        "value": "new FinalProyect2.Models.Jose.CuotaPrestamo(){}",
+        "valueType": "FinalProyect2.Models.Jose.CuotaPrestamo"
+      }
+    ]
+  },
+  "name": "Add Cuota Prestamo",
+  "layout": "Main"
+}

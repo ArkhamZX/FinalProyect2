@@ -1,0 +1,55 @@
+﻿@page "/garantia"
+@layout MainLayout
+@inherits FinalProyect2.Pages.GarantiaComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using FinalProyect2.Models.Jose
+<PageTitle>Garantia</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Garantia">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="Export" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="Excel" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="CSV" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenTextBox Placeholder="Search ..." style="display: block; margin-bottom: 10px; width: 100%" Name="Textbox0" @oninput="@(async(args) => {search = $"{args.Value}";await grid0.GoToPage(0);await Load();})">
+        </RadzenTextBox>
+        <RadzenDataGrid @ref="grid0" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getGarantiaResult" TItem="FinalProyect2.Models.Jose.Garantium" RowDoubleClick="@Grid0RowDoubleClick">
+          <Columns>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Garantium" Property="IdGarantia" Title="Id Garantia">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Garantium" Property="Tipo" Title="Tipo">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Garantium" Property="Valor" Title="Valor">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Garantium" Property="Ubicacion" Title="Ubicacion">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Garantium" Property="Fk_IdPrestamos" SortProperty="Prestamo.Periodo" GroupProperty="Prestamo.Periodo" FilterProperty="Prestamo.Periodo" Title="Prestamo">
+              <Template Context="data">
+              @(data.Prestamo?.Periodo)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Garantium" Property="FechaCreacion" FormatString="{0:dd/MM/yyyy}" Title="Fecha Creacion">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Garantium" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="finalProyect2ModelsJoseGarantium">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, finalProyect2ModelsJoseGarantium))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

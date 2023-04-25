@@ -1,0 +1,479 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "type": "close-popup"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "label0",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Another user has made conflicting changes to one or more of the fields you have modified. Please reload.",
+                  "type": "label",
+                  "visible": "${hasChanges}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "code": "Jose.Reset()",
+                        "type": "execute"
+                      },
+                      {
+                        "code": "await this.Load()",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "icon": "autorenew",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Reload",
+                  "type": "button",
+                  "visible": "${hasChanges}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Id Cuenta Banco",
+                              "component": "IdCuentaBanco",
+                              "name": "IdCuentaBancoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int",
+                              "type": "numeric",
+                              "name": "IdCuentaBanco",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cuentabanco.IdCuentaBanco}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "IdCuentaBancoRequiredValidator",
+                              "component": "IdCuentaBanco",
+                              "text": "IdCuentaBanco is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Banco",
+                              "component": "Banco",
+                              "name": "BancoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "Banco",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuentabanco.Banco}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tipo Cuenta",
+                              "component": "TipoCuenta",
+                              "name": "TipoCuentaLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "TipoCuenta",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuentabanco.TipoCuenta}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Cliente",
+                              "component": "Fk_IdCliente",
+                              "name": "Fk_IdClienteLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getClientesForFk_IdClienteResult}",
+                              "textProperty": "Nombre",
+                              "valueProperty": "IdCliente",
+                              "placeholder": "Choose Cliente",
+                              "valueType": "int",
+                              "showSearch": false,
+                              "type": "dropdown-datagrid",
+                              "name": "Fk_IdCliente",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cuentabanco.Fk_IdCliente}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "Fk_IdClienteRequiredValidator",
+                              "component": "Fk_IdCliente",
+                              "text": "Fk_IdCliente is required",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "defaultValue": "0"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha Creacion",
+                              "component": "FechaCreacion",
+                              "name": "FechaCreacionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaCreacion",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuentabanco.FechaCreacion}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update CuentaBanco",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          },
+                          {
+                            "name": "hasChanges",
+                            "type": "set",
+                            "value": "result is DbUpdateConcurrencyException",
+                            "valueType": "bool"
+                          },
+                          {
+                            "name": "canEdit",
+                            "type": "set",
+                            "condition": "!(result is DbUpdateConcurrencyException)",
+                            "value": "false",
+                            "valueType": "bool"
+                          }
+                        ],
+                        "name": "JOSE.updateCuentaBanco",
+                        "parameters": [
+                          {
+                            "name": "IdCuentaBanco",
+                            "value": "${parameters.IdCuentaBanco}"
+                          },
+                          {
+                            "name": "CuentaBanco",
+                            "value": "${cuentabanco}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${cuentabanco}",
+                            "condition": ""
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "FinalProyect2.Models.Jose.CuentaBanco",
+                  "data": "${cuentabanco}",
+                  "visible": "${cuentabanco != null && canEdit}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "hasChanges",
+        "type": "set",
+        "value": "false",
+        "valueType": "bool"
+      },
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "JOSE.getCuentaBancoByIdCuentaBanco",
+        "parameters": [
+          {
+            "name": "IdCuentaBanco",
+            "value": "${parameters.IdCuentaBanco}"
+          }
+        ],
+        "then": [
+          {
+            "name": "cuentabanco",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "FinalProyect2.Models.Jose.CuentaBanco"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "JOSE.getClientes",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getClientesForFk_IdClienteResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<FinalProyect2.Models.Jose.Cliente>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Cuenta Banco",
+  "layout": "Main"
+}

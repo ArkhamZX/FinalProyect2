@@ -1,0 +1,631 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Id Cliente",
+                              "component": "IdCliente",
+                              "name": "IdClienteLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int",
+                              "type": "numeric",
+                              "name": "IdCliente",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cliente.IdCliente}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "IdClienteRequiredValidator",
+                              "component": "IdCliente",
+                              "text": "IdCliente is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Nombre",
+                              "component": "Nombre",
+                              "name": "NombreLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "Nombre",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cliente.Nombre}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "NombreRequiredValidator",
+                              "component": "Nombre",
+                              "text": "Nombre is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Apellido",
+                              "component": "Apellido",
+                              "name": "ApellidoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "Apellido",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cliente.Apellido}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "ApellidoRequiredValidator",
+                              "component": "Apellido",
+                              "text": "Apellido is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tipo Documento",
+                              "component": "TipoDocumento",
+                              "name": "TipoDocumentoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "TipoDocumento",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cliente.TipoDocumento}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "TipoDocumentoRequiredValidator",
+                              "component": "TipoDocumento",
+                              "text": "TipoDocumento is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Documento",
+                              "component": "Documento",
+                              "name": "DocumentoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "Documento",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cliente.Documento}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "DocumentoRequiredValidator",
+                              "component": "Documento",
+                              "text": "Documento is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Genero",
+                              "component": "Genero",
+                              "name": "GeneroLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "Genero",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cliente.Genero}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "GeneroRequiredValidator",
+                              "component": "Genero",
+                              "text": "Genero is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Correo",
+                              "component": "Correo",
+                              "name": "CorreoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "Correo",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cliente.Correo}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "CorreoRequiredValidator",
+                              "component": "Correo",
+                              "text": "Correo is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Clave",
+                              "component": "Clave",
+                              "name": "ClaveLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "Clave",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cliente.Clave}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "ClaveRequiredValidator",
+                              "component": "Clave",
+                              "text": "Clave is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Direccion",
+                              "component": "Direccion",
+                              "name": "DireccionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "Direccion",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cliente.Direccion}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "DireccionRequiredValidator",
+                              "component": "Direccion",
+                              "text": "Direccion is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Telefono",
+                              "component": "Telefono",
+                              "name": "TelefonoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "Telefono",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cliente.Telefono}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "TelefonoRequiredValidator",
+                              "component": "Telefono",
+                              "text": "Telefono is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha Creacion",
+                              "component": "FechaCreacion",
+                              "name": "FechaCreacionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaCreacion",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cliente.FechaCreacion}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new Cliente!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "JOSE.createCliente",
+                        "parameters": [
+                          {
+                            "name": "Cliente",
+                            "value": "${cliente}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${cliente}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${cliente}",
+                  "visible": "${cliente != null}",
+                  "itemType": "FinalProyect2.Models.Jose.Cliente"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "cliente",
+        "type": "set",
+        "value": "new FinalProyect2.Models.Jose.Cliente(){}",
+        "valueType": "FinalProyect2.Models.Jose.Cliente"
+      }
+    ]
+  },
+  "name": "Add Cliente",
+  "layout": "Main"
+}

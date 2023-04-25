@@ -1,0 +1,50 @@
+{
+  "dataSources": [
+    "JOSE"
+  ],
+  "generator": "@radzen/blazor-server",
+  "https": false,
+  "layouts": [
+    "Login",
+    "Main"
+  ],
+  "logo": "",
+  "name": "FinalProyect2",
+  "navigation": [
+    "Clientes",
+    "Cuenta Bancos",
+    "Cuota Inversions",
+    "Cuota Prestamos",
+    "Garantia",
+    "Inversiones",
+    "Prestamos"
+  ],
+  "pages": [
+    "Clientes",
+    "Add Cliente",
+    "Edit Cliente",
+    "Cuenta Bancos",
+    "Add Cuenta Banco",
+    "Edit Cuenta Banco",
+    "Cuota Inversions",
+    "Add Cuota Inversion",
+    "Edit Cuota Inversion",
+    "Cuota Prestamos",
+    "Add Cuota Prestamo",
+    "Edit Cuota Prestamo",
+    "Garantia",
+    "Add Garantium",
+    "Edit Garantium",
+    "Inversiones",
+    "Add Inversione",
+    "Edit Inversione",
+    "Prestamos",
+    "Add Prestamo",
+    "Edit Prestamo"
+  ],
+  "serverLang": "cs",
+  "serverProject": true,
+  "serverVersion": "7",
+  "startPage": "Clientes",
+  "theme": "software"
+}

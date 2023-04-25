@@ -1,0 +1,65 @@
+﻿@page "/prestamos"
+@layout MainLayout
+@inherits FinalProyect2.Pages.PrestamosComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using FinalProyect2.Models.Jose
+<PageTitle>Prestamos</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Prestamos">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="Export" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="Excel" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="CSV" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenTextBox Placeholder="Search ..." style="display: block; margin-bottom: 10px; width: 100%" Name="Textbox0" @oninput="@(async(args) => {search = $"{args.Value}";await grid0.GoToPage(0);await Load();})">
+        </RadzenTextBox>
+        <RadzenDataGrid @ref="grid0" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getPrestamosResult" TItem="FinalProyect2.Models.Jose.Prestamo" RowDoubleClick="@Grid0RowDoubleClick">
+          <Columns>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Property="IdPrestamos" Title="Id Prestamos">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Property="Monto" Title="Monto">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Property="FechaSolocitud" FormatString="{0:dd/MM/yyyy}" Title="Fecha Solocitud">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Property="FechaBeg" FormatString="{0:dd/MM/yyyy}" Title="Fecha Beg">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Property="FechaEnd" FormatString="{0:dd/MM/yyyy}" Title="Fecha End">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Property="Periodo" Title="Periodo">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Property="Interes" Title="Interes">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Property="MetodoDePago" Title="Metodo De Pago">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Property="IdCliente" Title="Id Cliente">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Property="Fk_IdCliente" SortProperty="Cliente.Nombre" GroupProperty="Cliente.Nombre" FilterProperty="Cliente.Nombre" Title="Cliente">
+              <Template Context="data">
+              @(data.Cliente?.Nombre)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Property="FechaCreacion" FormatString="{0:dd/MM/yyyy}" Title="Fecha Creacion">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Prestamo" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="finalProyect2ModelsJosePrestamo">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, finalProyect2ModelsJosePrestamo))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

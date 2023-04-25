@@ -1,0 +1,68 @@
+﻿@page "/cuota-inversions"
+@layout MainLayout
+@inherits FinalProyect2.Pages.CuotaInversionsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using FinalProyect2.Models.Jose
+<PageTitle>Cuota Inversions</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Cuota Inversions">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="Export" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="Excel" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="CSV" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenTextBox Placeholder="Search ..." style="display: block; margin-bottom: 10px; width: 100%" Name="Textbox0" @oninput="@(async(args) => {search = $"{args.Value}";await grid0.GoToPage(0);await Load();})">
+        </RadzenTextBox>
+        <RadzenDataGrid @ref="grid0" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getCuotaInversionsResult" TItem="FinalProyect2.Models.Jose.CuotaInversion" RowDoubleClick="@Grid0RowDoubleClick">
+          <Columns>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Property="IdCuotaInversion" Title="Id Cuota Inversion">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Property="Monto" Title="Monto">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Property="Interes" Title="Interes">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Property="Tipo" Title="Tipo">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Property="Estado" Title="Estado">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Property="FechaPlanificada" FormatString="{0:dd/MM/yyyy}" Title="Fecha Planificada">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Property="FechaRealizada" FormatString="{0:dd/MM/yyyy}" Title="Fecha Realizada">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Property="CuotaInv" Title="Cuota Inv">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Property="Fk_IdInversiones" SortProperty="Inversione.IdInversiones" GroupProperty="Inversione.IdInversiones" FilterProperty="Inversione.IdInversiones" Title="Inversione">
+              <Template Context="data">
+              @(data.Inversione?.IdInversiones)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Property="Fk_IdCuentaBanco" SortProperty="CuentaBanco.Banco" GroupProperty="CuentaBanco.Banco" FilterProperty="CuentaBanco.Banco" Title="Cuenta Banco">
+              <Template Context="data">
+              @(data.CuentaBanco?.Banco)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Property="FechaCreacion" FormatString="{0:dd/MM/yyyy}" Title="Fecha Creacion">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuotaInversion" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="finalProyect2ModelsJoseCuotaInversion">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, finalProyect2ModelsJoseCuotaInversion))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

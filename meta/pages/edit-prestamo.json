@@ -1,0 +1,720 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "type": "close-popup"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "label0",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Another user has made conflicting changes to one or more of the fields you have modified. Please reload.",
+                  "type": "label",
+                  "visible": "${hasChanges}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "code": "Jose.Reset()",
+                        "type": "execute"
+                      },
+                      {
+                        "code": "await this.Load()",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "icon": "autorenew",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Reload",
+                  "type": "button",
+                  "visible": "${hasChanges}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Id Prestamos",
+                              "component": "IdPrestamos",
+                              "name": "IdPrestamosLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int",
+                              "type": "numeric",
+                              "name": "IdPrestamos",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${prestamo.IdPrestamos}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "IdPrestamosRequiredValidator",
+                              "component": "IdPrestamos",
+                              "text": "IdPrestamos is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Monto",
+                              "component": "Monto",
+                              "name": "MontoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "Monto",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${prestamo.Monto}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha Solocitud",
+                              "component": "FechaSolocitud",
+                              "name": "FechaSolocitudLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaSolocitud",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${prestamo.FechaSolocitud}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha Beg",
+                              "component": "FechaBeg",
+                              "name": "FechaBegLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaBeg",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${prestamo.FechaBeg}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha End",
+                              "component": "FechaEnd",
+                              "name": "FechaEndLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaEnd",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${prestamo.FechaEnd}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Periodo",
+                              "component": "Periodo",
+                              "name": "PeriodoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "Periodo",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${prestamo.Periodo}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Interes",
+                              "component": "Interes",
+                              "name": "InteresLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "Interes",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${prestamo.Interes}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Metodo De Pago",
+                              "component": "MetodoDePago",
+                              "name": "MetodoDePagoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "MetodoDePago",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${prestamo.MetodoDePago}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Id Cliente",
+                              "component": "IdCliente",
+                              "name": "IdClienteLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int",
+                              "type": "numeric",
+                              "name": "IdCliente",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${prestamo.IdCliente}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "IdClienteRequiredValidator",
+                              "component": "IdCliente",
+                              "text": "IdCliente is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Cliente",
+                              "component": "Fk_IdCliente",
+                              "name": "Fk_IdClienteLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getClientesForFk_IdClienteResult}",
+                              "textProperty": "Nombre",
+                              "valueProperty": "IdCliente",
+                              "placeholder": "Choose Cliente",
+                              "valueType": "int",
+                              "showSearch": false,
+                              "type": "dropdown-datagrid",
+                              "name": "Fk_IdCliente",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${prestamo.Fk_IdCliente}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "Fk_IdClienteRequiredValidator",
+                              "component": "Fk_IdCliente",
+                              "text": "Fk_IdCliente is required",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "defaultValue": "0"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha Creacion",
+                              "component": "FechaCreacion",
+                              "name": "FechaCreacionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaCreacion",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${prestamo.FechaCreacion}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Prestamo",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          },
+                          {
+                            "name": "hasChanges",
+                            "type": "set",
+                            "value": "result is DbUpdateConcurrencyException",
+                            "valueType": "bool"
+                          },
+                          {
+                            "name": "canEdit",
+                            "type": "set",
+                            "condition": "!(result is DbUpdateConcurrencyException)",
+                            "value": "false",
+                            "valueType": "bool"
+                          }
+                        ],
+                        "name": "JOSE.updatePrestamo",
+                        "parameters": [
+                          {
+                            "name": "IdPrestamos",
+                            "value": "${parameters.IdPrestamos}"
+                          },
+                          {
+                            "name": "Prestamo",
+                            "value": "${prestamo}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${prestamo}",
+                            "condition": ""
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "FinalProyect2.Models.Jose.Prestamo",
+                  "data": "${prestamo}",
+                  "visible": "${prestamo != null && canEdit}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "hasChanges",
+        "type": "set",
+        "value": "false",
+        "valueType": "bool"
+      },
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "JOSE.getPrestamoByIdPrestamos",
+        "parameters": [
+          {
+            "name": "IdPrestamos",
+            "value": "${parameters.IdPrestamos}"
+          }
+        ],
+        "then": [
+          {
+            "name": "prestamo",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "FinalProyect2.Models.Jose.Prestamo"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "JOSE.getClientes",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getClientesForFk_IdClienteResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<FinalProyect2.Models.Jose.Cliente>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Prestamo",
+  "layout": "Main"
+}

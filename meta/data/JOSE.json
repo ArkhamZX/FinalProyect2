@@ -1,0 +1,1961 @@
+{
+  "info": {
+    "title": "JOSE",
+    "x-type": "odata",
+    "x-connector": "mssql",
+    "x-connector-version": 15,
+    "x-concurrency": true,
+    "x-infer-aspnet": false,
+    "x-infer-tables": true,
+    "x-infer-relations": true,
+    "x-infer-views": true,
+    "x-infer-sps": true
+  },
+  "definitions": {
+    "Cliente": {
+      "x-table": "dbo.Cliente",
+      "resource": "Clientes",
+      "required": [
+        "IdCliente",
+        "Nombre",
+        "Apellido",
+        "TipoDocumento",
+        "Documento",
+        "Genero",
+        "Correo",
+        "Clave",
+        "Direccion",
+        "Telefono"
+      ],
+      "properties": {
+        "IdCliente": {
+          "x-key": true,
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-navigation": [
+            {
+              "inversePropertyName": "Cliente",
+              "name": "CuentaBancos",
+              "type": "CuentaBanco"
+            },
+            {
+              "inversePropertyName": "Cliente",
+              "name": "Prestamos",
+              "type": "Prestamo"
+            },
+            {
+              "inversePropertyName": "Cliente",
+              "name": "Inversiones",
+              "type": "Inversione"
+            }
+          ]
+        },
+        "Nombre": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 255
+        },
+        "Apellido": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 255
+        },
+        "TipoDocumento": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 255
+        },
+        "Documento": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 255
+        },
+        "Genero": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 10
+        },
+        "Correo": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 255
+        },
+        "Clave": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 255
+        },
+        "Direccion": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 255
+        },
+        "Telefono": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 20
+        },
+        "FechaCreacion": {
+          "x-default-sql": "(getdate())",
+          "type": "string",
+          "format": "date-time",
+          "dbType": "datetime",
+          "x-datetime": "datetime"
+        },
+        "CuentaBancos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CuentaBanco"
+          }
+        },
+        "Prestamos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Prestamo"
+          }
+        },
+        "Inversiones": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Inversione"
+          }
+        }
+      }
+    },
+    "CuentaBanco": {
+      "x-table": "dbo.CuentaBanco",
+      "resource": "CuentaBancos",
+      "required": [
+        "IdCuentaBanco",
+        "Fk_IdCliente"
+      ],
+      "properties": {
+        "IdCuentaBanco": {
+          "x-key": true,
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-navigation": [
+            {
+              "inversePropertyName": "CuentaBanco",
+              "name": "Inversiones",
+              "type": "Inversione"
+            },
+            {
+              "inversePropertyName": "CuentaBanco",
+              "name": "CuotaInversions",
+              "type": "CuotaInversion"
+            }
+          ]
+        },
+        "Banco": {
+          "type": "string",
+          "dbType": "varchar",
+          "length": 255
+        },
+        "TipoCuenta": {
+          "type": "string",
+          "dbType": "varchar",
+          "length": 255
+        },
+        "Cliente": {
+          "type": "object",
+          "$ref": "#/definitions/Cliente"
+        },
+        "Fk_IdCliente": {
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-foreignKey": {
+            "parentTable": "Cliente",
+            "parentEntityType": "Cliente",
+            "type": "Cliente",
+            "principalKey": "IdCliente",
+            "name": "Cliente",
+            "textProperty": "Nombre",
+            "navigationProperty": "CuentaBancos"
+          }
+        },
+        "FechaCreacion": {
+          "x-default-sql": "(getdate())",
+          "type": "string",
+          "format": "date-time",
+          "dbType": "datetime",
+          "x-datetime": "datetime"
+        },
+        "Inversiones": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Inversione"
+          }
+        },
+        "CuotaInversions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CuotaInversion"
+          }
+        }
+      }
+    },
+    "CuotaInversion": {
+      "x-table": "dbo.CuotaInversion",
+      "resource": "CuotaInversions",
+      "required": [
+        "IdCuotaInversion",
+        "Fk_IdInversiones",
+        "Fk_IdCuentaBanco"
+      ],
+      "properties": {
+        "IdCuotaInversion": {
+          "x-key": true,
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int"
+        },
+        "Monto": {
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int"
+        },
+        "Interes": {
+          "x-precision": 38,
+          "type": "number",
+          "format": "decimal",
+          "dbType": "decimal"
+        },
+        "Tipo": {
+          "type": "string",
+          "dbType": "varchar",
+          "length": 250
+        },
+        "Estado": {
+          "type": "string",
+          "dbType": "varchar",
+          "length": 250
+        },
+        "FechaPlanificada": {
+          "type": "string",
+          "format": "date-time",
+          "dbType": "date",
+          "x-datetime": "date"
+        },
+        "FechaRealizada": {
+          "type": "string",
+          "format": "date-time",
+          "dbType": "date",
+          "x-datetime": "date"
+        },
+        "CuotaInv": {
+          "x-precision": 38,
+          "type": "number",
+          "format": "decimal",
+          "dbType": "decimal"
+        },
+        "Inversione": {
+          "type": "object",
+          "$ref": "#/definitions/Inversione"
+        },
+        "Fk_IdInversiones": {
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-foreignKey": {
+            "parentTable": "Inversiones",
+            "parentEntityType": "Inversione",
+            "type": "Inversione",
+            "principalKey": "IdInversiones",
+            "name": "Inversione",
+            "textProperty": "IdInversiones",
+            "navigationProperty": "CuotaInversions"
+          }
+        },
+        "CuentaBanco": {
+          "type": "object",
+          "$ref": "#/definitions/CuentaBanco"
+        },
+        "Fk_IdCuentaBanco": {
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-foreignKey": {
+            "parentTable": "CuentaBanco",
+            "parentEntityType": "CuentaBanco",
+            "type": "CuentaBanco",
+            "principalKey": "IdCuentaBanco",
+            "name": "CuentaBanco",
+            "textProperty": "Banco",
+            "navigationProperty": "CuotaInversions"
+          }
+        },
+        "FechaCreacion": {
+          "x-default-sql": "(getdate())",
+          "type": "string",
+          "format": "date-time",
+          "dbType": "datetime",
+          "x-datetime": "datetime"
+        }
+      }
+    },
+    "CuotaPrestamo": {
+      "x-table": "dbo.CuotaPrestamo",
+      "resource": "CuotaPrestamos",
+      "required": [
+        "IdCuotaPrestamo",
+        "Fk_IdPrestamos"
+      ],
+      "properties": {
+        "IdCuotaPrestamo": {
+          "x-key": true,
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int"
+        },
+        "Monto": {
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int"
+        },
+        "Interes": {
+          "x-precision": 38,
+          "type": "number",
+          "format": "decimal",
+          "dbType": "decimal"
+        },
+        "TipoDePrestamos": {
+          "type": "string",
+          "dbType": "varchar",
+          "length": 250
+        },
+        "Estado": {
+          "type": "string",
+          "dbType": "varchar",
+          "length": 250
+        },
+        "FechaPlanificada": {
+          "type": "string",
+          "format": "date-time",
+          "dbType": "date",
+          "x-datetime": "date"
+        },
+        "FechaRealizada": {
+          "type": "string",
+          "format": "date-time",
+          "dbType": "date",
+          "x-datetime": "date"
+        },
+        "CuotaPres": {
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int"
+        },
+        "Prestamo": {
+          "type": "object",
+          "$ref": "#/definitions/Prestamo"
+        },
+        "Fk_IdPrestamos": {
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-foreignKey": {
+            "parentTable": "Prestamos",
+            "parentEntityType": "Prestamo",
+            "type": "Prestamo",
+            "principalKey": "IdPrestamos",
+            "name": "Prestamo",
+            "textProperty": "Periodo",
+            "navigationProperty": "CuotaPrestamos"
+          }
+        },
+        "FechaCreacion": {
+          "x-default-sql": "(getdate())",
+          "type": "string",
+          "format": "date-time",
+          "dbType": "datetime",
+          "x-datetime": "datetime"
+        }
+      }
+    },
+    "Garantium": {
+      "x-table": "dbo.Garantia",
+      "resource": "Garantia",
+      "required": [
+        "IdGarantia",
+        "Tipo",
+        "Valor",
+        "Ubicacion",
+        "Fk_IdPrestamos"
+      ],
+      "properties": {
+        "IdGarantia": {
+          "x-key": true,
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int"
+        },
+        "Tipo": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 250
+        },
+        "Valor": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 250
+        },
+        "Ubicacion": {
+          "x-nullable": false,
+          "type": "string",
+          "dbType": "varchar",
+          "length": 250
+        },
+        "Prestamo": {
+          "type": "object",
+          "$ref": "#/definitions/Prestamo"
+        },
+        "Fk_IdPrestamos": {
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-foreignKey": {
+            "parentTable": "Prestamos",
+            "parentEntityType": "Prestamo",
+            "type": "Prestamo",
+            "principalKey": "IdPrestamos",
+            "name": "Prestamo",
+            "textProperty": "Periodo",
+            "navigationProperty": "Garantia"
+          }
+        },
+        "FechaCreacion": {
+          "x-default-sql": "(getdate())",
+          "type": "string",
+          "format": "date-time",
+          "dbType": "datetime",
+          "x-datetime": "datetime"
+        }
+      }
+    },
+    "Inversione": {
+      "x-table": "dbo.Inversiones",
+      "resource": "Inversiones",
+      "required": [
+        "IdInversiones",
+        "Fk_IdCliente",
+        "Fk_IdCuentaBanco"
+      ],
+      "properties": {
+        "IdInversiones": {
+          "x-key": true,
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-navigation": [
+            {
+              "inversePropertyName": "Inversione",
+              "name": "CuotaInversions",
+              "type": "CuotaInversion"
+            }
+          ]
+        },
+        "Monto": {
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int"
+        },
+        "FechaSolocitud": {
+          "type": "string",
+          "format": "date-time",
+          "dbType": "date",
+          "x-datetime": "date"
+        },
+        "FechaBeg": {
+          "type": "string",
+          "format": "date-time",
+          "dbType": "date",
+          "x-datetime": "date"
+        },
+        "FechaEnd": {
+          "type": "string",
+          "format": "date-time",
+          "dbType": "date",
+          "x-datetime": "date"
+        },
+        "Interes": {
+          "x-precision": 38,
+          "type": "number",
+          "format": "decimal",
+          "dbType": "decimal"
+        },
+        "Cliente": {
+          "type": "object",
+          "$ref": "#/definitions/Cliente"
+        },
+        "Fk_IdCliente": {
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-foreignKey": {
+            "parentTable": "Cliente",
+            "parentEntityType": "Cliente",
+            "type": "Cliente",
+            "principalKey": "IdCliente",
+            "name": "Cliente",
+            "textProperty": "Nombre",
+            "navigationProperty": "Inversiones"
+          }
+        },
+        "CuentaBanco": {
+          "type": "object",
+          "$ref": "#/definitions/CuentaBanco"
+        },
+        "Fk_IdCuentaBanco": {
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-foreignKey": {
+            "parentTable": "CuentaBanco",
+            "parentEntityType": "CuentaBanco",
+            "type": "CuentaBanco",
+            "principalKey": "IdCuentaBanco",
+            "name": "CuentaBanco",
+            "textProperty": "Banco",
+            "navigationProperty": "Inversiones"
+          }
+        },
+        "FechaCreacion": {
+          "x-default-sql": "(getdate())",
+          "type": "string",
+          "format": "date-time",
+          "dbType": "datetime",
+          "x-datetime": "datetime"
+        },
+        "CuotaInversions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CuotaInversion"
+          }
+        }
+      }
+    },
+    "Prestamo": {
+      "x-table": "dbo.Prestamos",
+      "resource": "Prestamos",
+      "required": [
+        "IdPrestamos",
+        "IdCliente",
+        "Fk_IdCliente"
+      ],
+      "properties": {
+        "IdPrestamos": {
+          "x-key": true,
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-navigation": [
+            {
+              "inversePropertyName": "Prestamo",
+              "name": "CuotaPrestamos",
+              "type": "CuotaPrestamo"
+            },
+            {
+              "inversePropertyName": "Prestamo",
+              "name": "Garantia",
+              "type": "Garantium"
+            }
+          ]
+        },
+        "Monto": {
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int"
+        },
+        "FechaSolocitud": {
+          "type": "string",
+          "format": "date-time",
+          "dbType": "date",
+          "x-datetime": "date"
+        },
+        "FechaBeg": {
+          "type": "string",
+          "format": "date-time",
+          "dbType": "date",
+          "x-datetime": "date"
+        },
+        "FechaEnd": {
+          "type": "string",
+          "format": "date-time",
+          "dbType": "date",
+          "x-datetime": "date"
+        },
+        "Periodo": {
+          "type": "string",
+          "dbType": "varchar",
+          "length": 255
+        },
+        "Interes": {
+          "x-precision": 38,
+          "type": "number",
+          "format": "decimal",
+          "dbType": "decimal"
+        },
+        "MetodoDePago": {
+          "type": "string",
+          "dbType": "varchar",
+          "length": 255
+        },
+        "IdCliente": {
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int"
+        },
+        "Cliente": {
+          "type": "object",
+          "$ref": "#/definitions/Cliente"
+        },
+        "Fk_IdCliente": {
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-foreignKey": {
+            "parentTable": "Cliente",
+            "parentEntityType": "Cliente",
+            "type": "Cliente",
+            "principalKey": "IdCliente",
+            "name": "Cliente",
+            "textProperty": "Nombre",
+            "navigationProperty": "Prestamos"
+          }
+        },
+        "FechaCreacion": {
+          "x-default-sql": "(getdate())",
+          "type": "string",
+          "format": "date-time",
+          "dbType": "datetime",
+          "x-datetime": "datetime"
+        },
+        "CuotaPrestamos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CuotaPrestamo"
+          }
+        },
+        "Garantia": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Garantium"
+          }
+        }
+      }
+    },
+    "SpGetCacularCuotum": {
+      "x-view": "sp",
+      "x-table": "dbo.sp_GetCacularCuota",
+      "resource": "SpGetCacularCuota",
+      "required": [
+        "IdPrestamos"
+      ],
+      "properties": {
+        "IdPrestamos": {
+          "x-nullable": false,
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int",
+          "x-key": true,
+          "x-virtual": true
+        },
+        "Monto": {
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int"
+        },
+        "Interes": {
+          "x-precision": 38,
+          "type": "number",
+          "format": "decimal",
+          "dbType": "decimal"
+        },
+        "CuotaPres": {
+          "x-precision": 10,
+          "type": "integer",
+          "dbType": "int"
+        },
+        "MontoCuota": {
+          "x-computed": true,
+          "x-precision": 38,
+          "x-scale": 6,
+          "type": "number",
+          "format": "decimal",
+          "dbType": "decimal"
+        }
+      }
+    }
+  },
+  "paths": {
+    "/Clientes": {
+      "get": {
+        "operationId": "getClientes",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/Cliente"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createCliente",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Cliente",
+            "schema": {
+              "$ref": "#/definitions/Cliente"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/Cliente"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/CuentaBancos": {
+      "get": {
+        "operationId": "getCuentaBancos",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/CuentaBanco"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createCuentaBanco",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "CuentaBanco",
+            "schema": {
+              "$ref": "#/definitions/CuentaBanco"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/CuentaBanco"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/CuotaInversions": {
+      "get": {
+        "operationId": "getCuotaInversions",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/CuotaInversion"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createCuotaInversion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "CuotaInversion",
+            "schema": {
+              "$ref": "#/definitions/CuotaInversion"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/CuotaInversion"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/CuotaPrestamos": {
+      "get": {
+        "operationId": "getCuotaPrestamos",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/CuotaPrestamo"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createCuotaPrestamo",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "CuotaPrestamo",
+            "schema": {
+              "$ref": "#/definitions/CuotaPrestamo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/CuotaPrestamo"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/Garantia": {
+      "get": {
+        "operationId": "getGarantia",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/Garantium"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createGarantium",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Garantium",
+            "schema": {
+              "$ref": "#/definitions/Garantium"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/Garantium"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/Inversiones": {
+      "get": {
+        "operationId": "getInversiones",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/Inversione"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createInversione",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Inversione",
+            "schema": {
+              "$ref": "#/definitions/Inversione"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/Inversione"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/Prestamos": {
+      "get": {
+        "operationId": "getPrestamos",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/Prestamo"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createPrestamo",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Prestamo",
+            "schema": {
+              "$ref": "#/definitions/Prestamo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/Prestamo"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/SpGetCacularCuotaFunc()": {
+      "get": {
+        "operationId": "getSpGetCacularCuota",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/SpGetCacularCuotum"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/Clientes({IdCliente})": {
+      "delete": {
+        "operationId": "deleteCliente",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCliente",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getClienteByIdCliente",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCliente",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Cliente"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateCliente",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCliente",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "Cliente",
+            "schema": {
+              "$ref": "#/definitions/Cliente"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelClienteChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Cliente",
+            "schema": {
+              "$ref": "#/definitions/Cliente"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/CuentaBancos({IdCuentaBanco})": {
+      "delete": {
+        "operationId": "deleteCuentaBanco",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCuentaBanco",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getCuentaBancoByIdCuentaBanco",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCuentaBanco",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/CuentaBanco"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateCuentaBanco",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCuentaBanco",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "CuentaBanco",
+            "schema": {
+              "$ref": "#/definitions/CuentaBanco"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelCuentaBancoChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "CuentaBanco",
+            "schema": {
+              "$ref": "#/definitions/CuentaBanco"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/CuotaInversions({IdCuotaInversion})": {
+      "delete": {
+        "operationId": "deleteCuotaInversion",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCuotaInversion",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getCuotaInversionByIdCuotaInversion",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCuotaInversion",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/CuotaInversion"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateCuotaInversion",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCuotaInversion",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "CuotaInversion",
+            "schema": {
+              "$ref": "#/definitions/CuotaInversion"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelCuotaInversionChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "CuotaInversion",
+            "schema": {
+              "$ref": "#/definitions/CuotaInversion"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/CuotaPrestamos({IdCuotaPrestamo})": {
+      "delete": {
+        "operationId": "deleteCuotaPrestamo",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCuotaPrestamo",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getCuotaPrestamoByIdCuotaPrestamo",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCuotaPrestamo",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/CuotaPrestamo"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateCuotaPrestamo",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdCuotaPrestamo",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "CuotaPrestamo",
+            "schema": {
+              "$ref": "#/definitions/CuotaPrestamo"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelCuotaPrestamoChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "CuotaPrestamo",
+            "schema": {
+              "$ref": "#/definitions/CuotaPrestamo"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/Garantia({IdGarantia})": {
+      "delete": {
+        "operationId": "deleteGarantium",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdGarantia",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getGarantiumByIdGarantia",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdGarantia",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Garantium"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateGarantium",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdGarantia",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "Garantium",
+            "schema": {
+              "$ref": "#/definitions/Garantium"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelGarantiumChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Garantium",
+            "schema": {
+              "$ref": "#/definitions/Garantium"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/Inversiones({IdInversiones})": {
+      "delete": {
+        "operationId": "deleteInversione",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdInversiones",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getInversioneByIdInversiones",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdInversiones",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Inversione"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateInversione",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdInversiones",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "Inversione",
+            "schema": {
+              "$ref": "#/definitions/Inversione"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelInversioneChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Inversione",
+            "schema": {
+              "$ref": "#/definitions/Inversione"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/Prestamos({IdPrestamos})": {
+      "delete": {
+        "operationId": "deletePrestamo",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdPrestamos",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getPrestamoByIdPrestamos",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdPrestamos",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Prestamo"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updatePrestamo",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "IdPrestamos",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "Prestamo",
+            "schema": {
+              "$ref": "#/definitions/Prestamo"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelPrestamoChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Prestamo",
+            "schema": {
+              "$ref": "#/definitions/Prestamo"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "basePath": "/odata/JOSE",
+  "host": "localhost:5000",
+  "schemes": [
+    "http"
+  ]
+}

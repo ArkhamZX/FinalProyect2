@@ -1,0 +1,124 @@
+﻿@page "/add-inversione"
+@layout MainLayout
+@inherits FinalProyect2.Pages.AddInversioneComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using FinalProyect2.Models.Jose
+<PageTitle>Add Inversione</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@inversione" Visible="@(inversione != null)" TItem="FinalProyect2.Models.Jose.Inversione" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Id Inversiones" Component="IdInversiones" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(inversione.IdInversiones)" Name="IdInversiones">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="IdInversiones" Text="IdInversiones is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Monto" Component="Monto" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(inversione.Monto)" Name="Monto">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Fecha Solocitud" Component="FechaSolocitud" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker style="width: 100%" @bind-Value="@(inversione.FechaSolocitud)" Name="FechaSolocitud">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Fecha Beg" Component="FechaBeg" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker style="width: 100%" @bind-Value="@(inversione.FechaBeg)" Name="FechaBeg">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Fecha End" Component="FechaEnd" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker style="width: 100%" @bind-Value="@(inversione.FechaEnd)" Name="FechaEnd">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Interes" Component="Interes" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(inversione.Interes)" Name="Interes">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Cliente" Component="Fk_IdCliente" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDownDataGrid Data="@(getClientesForFk_IdClienteResult)" TextProperty="Nombre" ValueProperty="IdCliente" Placeholder="Choose Cliente" ShowSearch="false" style="display: block; width: 100%" @bind-Value="@(inversione.Fk_IdCliente)" Name="Fk_IdCliente">
+                </RadzenDropDownDataGrid>
+                <RadzenRequiredValidator Component="Fk_IdCliente" Text="Fk_IdCliente is required" style="position: absolute" DefaultValue="0">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Cuenta Banco" Component="Fk_IdCuentaBanco" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDownDataGrid Data="@(getCuentaBancosForFk_IdCuentaBancoResult)" TextProperty="Banco" ValueProperty="IdCuentaBanco" Placeholder="Choose CuentaBanco" ShowSearch="false" style="display: block; width: 100%" @bind-Value="@(inversione.Fk_IdCuentaBanco)" Name="Fk_IdCuentaBanco">
+                </RadzenDropDownDataGrid>
+                <RadzenRequiredValidator Component="Fk_IdCuentaBanco" Text="Fk_IdCuentaBanco is required" style="position: absolute" DefaultValue="0">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Fecha Creacion" Component="FechaCreacion" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker style="width: 100%" @bind-Value="@(inversione.FechaCreacion)" Name="FechaCreacion">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

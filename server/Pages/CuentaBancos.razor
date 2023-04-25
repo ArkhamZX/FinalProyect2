@@ -1,0 +1,53 @@
+﻿@page "/cuenta-bancos"
+@layout MainLayout
+@inherits FinalProyect2.Pages.CuentaBancosComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using FinalProyect2.Models.Jose
+<PageTitle>Cuenta Bancos</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Cuenta Bancos">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="Export" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="Excel" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="CSV" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenTextBox Placeholder="Search ..." style="display: block; margin-bottom: 10px; width: 100%" Name="Textbox0" @oninput="@(async(args) => {search = $"{args.Value}";await grid0.GoToPage(0);await Load();})">
+        </RadzenTextBox>
+        <RadzenDataGrid @ref="grid0" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getCuentaBancosResult" TItem="FinalProyect2.Models.Jose.CuentaBanco" RowDoubleClick="@Grid0RowDoubleClick">
+          <Columns>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuentaBanco" Property="IdCuentaBanco" Title="Id Cuenta Banco">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuentaBanco" Property="Banco" Title="Banco">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuentaBanco" Property="TipoCuenta" Title="Tipo Cuenta">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuentaBanco" Property="Fk_IdCliente" SortProperty="Cliente.Nombre" GroupProperty="Cliente.Nombre" FilterProperty="Cliente.Nombre" Title="Cliente">
+              <Template Context="data">
+              @(data.Cliente?.Nombre)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuentaBanco" Property="FechaCreacion" FormatString="{0:dd/MM/yyyy}" Title="Fecha Creacion">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.CuentaBanco" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="finalProyect2ModelsJoseCuentaBanco">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, finalProyect2ModelsJoseCuentaBanco))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

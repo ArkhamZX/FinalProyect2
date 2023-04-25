@@ -1,0 +1,594 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Id Cuota Inversion",
+                              "component": "IdCuotaInversion",
+                              "name": "IdCuotaInversionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int",
+                              "type": "numeric",
+                              "name": "IdCuotaInversion",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cuotainversion.IdCuotaInversion}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "IdCuotaInversionRequiredValidator",
+                              "component": "IdCuotaInversion",
+                              "text": "IdCuotaInversion is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Monto",
+                              "component": "Monto",
+                              "name": "MontoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "Monto",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotainversion.Monto}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Interes",
+                              "component": "Interes",
+                              "name": "InteresLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "Interes",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotainversion.Interes}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tipo",
+                              "component": "Tipo",
+                              "name": "TipoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "Tipo",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotainversion.Tipo}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Estado",
+                              "component": "Estado",
+                              "name": "EstadoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "Estado",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotainversion.Estado}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha Planificada",
+                              "component": "FechaPlanificada",
+                              "name": "FechaPlanificadaLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaPlanificada",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotainversion.FechaPlanificada}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha Realizada",
+                              "component": "FechaRealizada",
+                              "name": "FechaRealizadaLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaRealizada",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotainversion.FechaRealizada}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Cuota Inv",
+                              "component": "CuotaInv",
+                              "name": "CuotaInvLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "CuotaInv",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotainversion.CuotaInv}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Inversione",
+                              "component": "Fk_IdInversiones",
+                              "name": "Fk_IdInversionesLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getInversionesForFk_IdInversionesResult}",
+                              "textProperty": "IdInversiones",
+                              "valueProperty": "IdInversiones",
+                              "placeholder": "Choose Inversione",
+                              "valueType": "int",
+                              "showSearch": false,
+                              "type": "dropdown-datagrid",
+                              "name": "Fk_IdInversiones",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cuotainversion.Fk_IdInversiones}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "Fk_IdInversionesRequiredValidator",
+                              "component": "Fk_IdInversiones",
+                              "text": "Fk_IdInversiones is required",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "defaultValue": "0"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Cuenta Banco",
+                              "component": "Fk_IdCuentaBanco",
+                              "name": "Fk_IdCuentaBancoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getCuentaBancosForFk_IdCuentaBancoResult}",
+                              "textProperty": "Banco",
+                              "valueProperty": "IdCuentaBanco",
+                              "placeholder": "Choose CuentaBanco",
+                              "valueType": "int",
+                              "showSearch": false,
+                              "type": "dropdown-datagrid",
+                              "name": "Fk_IdCuentaBanco",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${cuotainversion.Fk_IdCuentaBanco}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "Fk_IdCuentaBancoRequiredValidator",
+                              "component": "Fk_IdCuentaBanco",
+                              "text": "Fk_IdCuentaBanco is required",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "defaultValue": "0"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fecha Creacion",
+                              "component": "FechaCreacion",
+                              "name": "FechaCreacionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "FechaCreacion",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${cuotainversion.FechaCreacion}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new CuotaInversion!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "JOSE.createCuotaInversion",
+                        "parameters": [
+                          {
+                            "name": "CuotaInversion",
+                            "value": "${cuotainversion}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${cuotainversion}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${cuotainversion}",
+                  "visible": "${cuotainversion != null}",
+                  "itemType": "FinalProyect2.Models.Jose.CuotaInversion"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "JOSE.getInversiones",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getInversionesForFk_IdInversionesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<FinalProyect2.Models.Jose.Inversione>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "JOSE.getCuentaBancos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getCuentaBancosForFk_IdCuentaBancoResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<FinalProyect2.Models.Jose.CuentaBanco>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "cuotainversion",
+        "type": "set",
+        "value": "new FinalProyect2.Models.Jose.CuotaInversion(){}",
+        "valueType": "FinalProyect2.Models.Jose.CuotaInversion"
+      }
+    ]
+  },
+  "name": "Add Cuota Inversion",
+  "layout": "Main"
+}

@@ -1,0 +1,98 @@
+﻿@page "/add-garantium"
+@layout MainLayout
+@inherits FinalProyect2.Pages.AddGarantiumComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using FinalProyect2.Models.Jose
+<PageTitle>Add Garantium</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@garantium" Visible="@(garantium != null)" TItem="FinalProyect2.Models.Jose.Garantium" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Id Garantia" Component="IdGarantia" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(garantium.IdGarantia)" Name="IdGarantia">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="IdGarantia" Text="IdGarantia is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tipo" Component="Tipo" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="250" style="display: block; width: 100%" @bind-Value="@(garantium.Tipo)" Name="Tipo">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="Tipo" Text="Tipo is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Valor" Component="Valor" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="250" style="display: block; width: 100%" @bind-Value="@(garantium.Valor)" Name="Valor">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="Valor" Text="Valor is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Ubicacion" Component="Ubicacion" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="250" style="display: block; width: 100%" @bind-Value="@(garantium.Ubicacion)" Name="Ubicacion">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="Ubicacion" Text="Ubicacion is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Prestamo" Component="Fk_IdPrestamos" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDownDataGrid Data="@(getPrestamosForFk_IdPrestamosResult)" TextProperty="Periodo" ValueProperty="IdPrestamos" Placeholder="Choose Prestamo" ShowSearch="false" style="display: block; width: 100%" @bind-Value="@(garantium.Fk_IdPrestamos)" Name="Fk_IdPrestamos">
+                </RadzenDropDownDataGrid>
+                <RadzenRequiredValidator Component="Fk_IdPrestamos" Text="Fk_IdPrestamos is required" style="position: absolute" DefaultValue="0">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Fecha Creacion" Component="FechaCreacion" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="dd/MM/yyyy" style="width: 100%" @bind-Value="@(garantium.FechaCreacion)" Name="FechaCreacion">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

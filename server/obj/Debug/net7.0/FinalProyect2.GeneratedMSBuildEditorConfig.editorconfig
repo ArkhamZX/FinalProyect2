@@ -1,0 +1,125 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = FinalProyect2
+build_property.RootNamespace = FinalProyect2
+build_property.ProjectDir = C:\Users\Jose Trinidad\Desktop\FinalProyect2\server\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Jose Trinidad\Desktop\FinalProyect2\server
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/AddCliente.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ2xpZW50ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/AddCuentaBanco.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ3VlbnRhQmFuY28ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/AddCuotaInversion.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ3VvdGFJbnZlcnNpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/AddCuotaPrestamo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ3VvdGFQcmVzdGFtby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/AddGarantium.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkR2FyYW50aXVtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/AddInversione.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkSW52ZXJzaW9uZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/AddPrestamo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUHJlc3RhbW8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/Clientes.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/CuentaBancos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VlbnRhQmFuY29zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/CuotaInversions.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VvdGFJbnZlcnNpb25zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/CuotaPrestamos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VvdGFQcmVzdGFtb3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/EditCliente.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdENsaWVudGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/EditCuentaBanco.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEN1ZW50YUJhbmNvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/EditCuotaInversion.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEN1b3RhSW52ZXJzaW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/EditCuotaPrestamo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEN1b3RhUHJlc3RhbW8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/EditGarantium.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEdhcmFudGl1bS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/EditInversione.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEludmVyc2lvbmUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/EditPrestamo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFByZXN0YW1vLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/Garantia.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FyYW50aWEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/Inversiones.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZXJzaW9uZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/Prestamos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJlc3RhbW9zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Shared/LoginLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jose Trinidad/Desktop/FinalProyect2/server/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

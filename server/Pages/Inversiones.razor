@@ -1,0 +1,64 @@
+﻿@page "/inversiones"
+@layout MainLayout
+@inherits FinalProyect2.Pages.InversionesComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using FinalProyect2.Models.Jose
+<PageTitle>Inversiones</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Inversiones">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="Export" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="Excel" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="CSV" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenTextBox Placeholder="Search ..." style="display: block; margin-bottom: 10px; width: 100%" Name="Textbox0" @oninput="@(async(args) => {search = $"{args.Value}";await grid0.GoToPage(0);await Load();})">
+        </RadzenTextBox>
+        <RadzenDataGrid @ref="grid0" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getInversionesResult" TItem="FinalProyect2.Models.Jose.Inversione" RowDoubleClick="@Grid0RowDoubleClick">
+          <Columns>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Inversione" Property="IdInversiones" Title="Id Inversiones">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Inversione" Property="Monto" Title="Monto">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Inversione" Property="FechaSolocitud" FormatString="{0:dd/MM/yyyy}" Title="Fecha Solocitud">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Inversione" Property="FechaBeg" FormatString="{0:dd/MM/yyyy}" Title="Fecha Beg">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Inversione" Property="FechaEnd" FormatString="{0:dd/MM/yyyy}" Title="Fecha End">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Inversione" Property="Interes" Title="Interes">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Inversione" Property="Fk_IdCliente" SortProperty="Cliente.Nombre" GroupProperty="Cliente.Nombre" FilterProperty="Cliente.Nombre" Title="Cliente">
+              <Template Context="data">
+              @(data.Cliente?.Nombre)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Inversione" Property="Fk_IdCuentaBanco" SortProperty="CuentaBanco.Banco" GroupProperty="CuentaBanco.Banco" FilterProperty="CuentaBanco.Banco" Title="Cuenta Banco">
+              <Template Context="data">
+              @(data.CuentaBanco?.Banco)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Inversione" Property="FechaCreacion" FormatString="{0:dd/MM/yyyy}" Title="Fecha Creacion">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FinalProyect2.Models.Jose.Inversione" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="finalProyect2ModelsJoseInversione">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, finalProyect2ModelsJoseInversione))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>
